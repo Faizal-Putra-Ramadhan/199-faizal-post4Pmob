@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">post4_199</string>
+
+    <string-array name="status_pernikahan">
+        <item>Belum Menikah</item>
+        <item>Menikah</item>
+        <item>Cerai</item>
+    </string-array>
+</resources>
