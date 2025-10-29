@@ -1,6 +1,7 @@
 package com.faizalputraramadhan.post4_199
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.faizalputraramadhan.post4_199.databinding.ActivityMainBinding
@@ -42,6 +43,13 @@ class MainActivity : AppCompatActivity() {
                 val desa = etDesa.text.toString()
                 val rt = etRT.text.toString()
                 val rw = etRW.text.toString()
+
+                if (nama.isEmpty() || nik.isEmpty() || kabupaten.isEmpty() ||
+                    kecamatan.isEmpty() || desa.isEmpty() || rt.isEmpty() || rw.isEmpty() || jk.isEmpty()
+                ) {
+                    Toast.makeText(this@MainActivity, "Isi Semua Data Woyy!!", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
 
 
                 if(rbLaki.isChecked){
@@ -98,20 +106,7 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-//            barangDao.getAllBarang().observe(this@MainActivity) { list ->
-//                if (list.isEmpty()) {
-//                    binding.tvDaftar.text = "Belum ada data."
-//                } else {
-//                    val builder = StringBuilder()
-//                    builder.append("Daftar Warga Negara : \n")
-//                    list.forEachIndexed { index, barang ->
-//                        builder.append("${index + 1}. ${barang.nama} - ${barang.status}\n")
-//                        builder.append("NIK: ${barang.nik}\n")
-//                        builder.append("Alamat: ${barang.alamat}\n\n")
-//                    }
-//                    binding.tvDaftar.text = builder.toString()
-//                }
-//            }
+
 
             btnReset.setOnClickListener {
                 val dao = DatabaseBarang.getDatabase(this@MainActivity).barangDao()
